@@ -1,0 +1,16 @@
+
+body {
+  /* background-image: url(./styles/images/Rock-Music-HD-Wallpaper.jpg);
+  background-position: center center;
+  background-attachment: fixed; */
+  margin: 0;
+  padding: 0;
+}
+
+section{
+  height: 100vh;
+  background-image: url(./styles/images/Rock-Music-HD-Wallpaper.jpg);
+  background-size: 103% 103%;
+  background-position: center center;
+  background-attachment: fixed;
+}

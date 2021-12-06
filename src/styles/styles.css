@@ -1,0 +1,32 @@
+
+.MuiOutlinedInput-notchedOutline{
+    border-width: 0px !important;
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.685) 0%, rgba(126, 126, 126, 0.726) 35%, rgba(187, 187, 187, 0.198) 100%);
+}
+
+.MuiInputLabel-outlined{
+    color: rgb(207, 207, 207) !important
+}
+
+/* text-input */
+.MuiOutlinedInput-input{ 
+    color: rgb(255, 255, 255) !important;
+}
+
+/* small-text above searchbox */
+.MuiInputLabel-shrink{
+    color: rgb(255, 255, 255) !important;
+}
+
+.MuiButton-root:hover{
+    color: rgba(158, 15, 15, 0) !important;
+    background-color: rgba(255, 255, 255, 0) !important;
+    border-radius: 15px;
+}
+
+.logo{
+    width: 17.5rem;
+    height: 5rem;
+    background-image: url(./images/solo\ logo.png);
+    padding-bottom: 1rem;
+}

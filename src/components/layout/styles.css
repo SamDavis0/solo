@@ -1,0 +1,19 @@
+.navlink{
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    padding: 1rem;
+}
+
+.MuiSvgIcon-root{
+    color: white
+}
+
+.menuicon{
+    color: rgba(245, 245, 245, 0.918);
+    padding: 1rem
+}
+
+/* drawer background */
+.MuiDrawer-paperAnchorLeft{ 
+    background: linear-gradient(90deg, rgb(71, 71, 71) 0%, rgba(71, 71, 71, 0.979) 35%, rgba(187, 187, 187, 0.192) 100%) !important;
+}
