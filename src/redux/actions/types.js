@@ -1,3 +1,5 @@
 
 export const INCREMENT = 'INCREMENT'
+export const FETCH_VIDEOS = 'FETCH_VIDEOS'
+export const SELECTED_VIDEOS = 'SELECTED_VIDEOS'
 

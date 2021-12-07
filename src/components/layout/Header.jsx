@@ -13,7 +13,7 @@ import {Link} from 'react-router-dom'
 import MenuTwoToneIcon from '@mui/icons-material/MenuTwoTone';
 import { purple } from '@mui/material/colors';
 
-import './styles.css'
+import './layout.css'
 
 export default function Header2() {
   const [state, setState] = React.useState({
@@ -59,7 +59,7 @@ export default function Header2() {
   );
 
   return (
-    <div >
+    <div className='header-wrapper'>
       {['left'].map((anchor) => (
         <React.Fragment key={anchor}>
           <Button onClick={toggleDrawer(anchor, true)}><MenuTwoToneIcon className='menuicon' sx={{ fontSize: 70 }}/></Button>

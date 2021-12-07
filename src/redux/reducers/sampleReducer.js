@@ -1,6 +1,5 @@
-// import { INCREMENT } from '../actions/types'
-import { INCREMENT } from '../actions/types'
 
+import { INCREMENT } from '../actions/types'
 
 const initialState = {
     count: 0

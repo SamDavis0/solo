@@ -1,89 +1,42 @@
-import React from "react";
-import { TextField, Autocomplete, CircularProgress, Grid } from "@mui/material";
+import React, { useEffect, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import styled from "styled-components";
+import {FetchVideos} from '../../redux/actions/searchAction'
 
-import { topFilms } from "../../mockData";
+const SearchContainer = styled.div`
 
+`;
 
-function sleep(delay = 0) {
-  return new Promise((resolve) => {
-    setTimeout(resolve, delay);
-  });
-}
 
 export default function Search() {
-  const [open, setOpen] = React.useState(false);
-  const [options, setOptions] = React.useState([]);
-  const loading = open && options.length === 0;
+    const dispatch = useDispatch();
+    const searchTerm = useSelector((state) => state.searchTerm);
 
-  React.useEffect(() => {
-    let active = true;
-    if (!loading) {
-      return undefined;
-    }
-
-    (async () => {
-      await sleep(1e3); // For demo purposes.
-      if (active) {
-        setOptions([...topFilms]);
-      }
-    })();
-
-    return () => {
-      active = false;
+    const [searchTerm, setSearchTerm] = useState('')
+    
+    const handleChange = (e) => {
+        setSearchTerm(e.target.value)
     };
-  }, [loading]);
+    
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        dispatch(FetchVideos(searchTerm));
+    };
+    
 
-  React.useEffect(() => {
-    if (!open) {
-      setOptions([]);
-    }
-  }, [open]);
-
-  return (
-    <React.Fragment>
-      <Grid
-        container
-        spacing={0}
-        direction="column"
-        alignItems="center"
-        justifyContent="center"
-        style={{ minHeight: "100%" }}
-      >
-        <div className="logo"></div>
-        <Autocomplete
-          className="searchbar"
-          id="asynchronous-demo"
-          sx={{ width: 500 }}
-          open={open}
-          onOpen={() => {
-            setOpen(true);
-          }}
-          onClose={() => {
-            setOpen(false);
-          }}
-          isOptionEqualToValue={(option, value) => option.title === value.title}
-          getOptionLabel={(option) => option.title}
-          options={options}
-          loading={loading}
-          renderInput={(params) => (
-            <TextField
-              {...params}
-              label="Search..."
-              InputProps={{
-                ...params.InputProps,
-                endAdornment: (
-                  <React.Fragment>
-                    {loading ? (
-                      <CircularProgress color="inherit" size={20} />
-                    ) : null}
-                    {params.InputProps.endAdornment}
-                  </React.Fragment>
-                ),
-              }}
-            />
-          )}
-        />
-      </Grid>
-    </React.Fragment>
-  );
+    return (
+        <React.Fragment>
+        <SearchContainer>
+            <div>
+                <form onSubmit={() => dispatch(handleSubmit())}>
+                    <input
+                    name="search"
+                    placeholder="Search..."
+                    onChange={() => dispatch(handleChange())}
+                    />
+                </form>
+            </div>
+        </SearchContainer>
+        </React.Fragment>
+    );
 }

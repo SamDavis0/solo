@@ -1,7 +1,7 @@
 import React from 'react'
 import Header from './Header'
 
-import './styles.css'
+import './layout.css'
 
 function BaseLayout({children}) {
     return (

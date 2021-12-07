@@ -17,3 +17,7 @@
 .MuiDrawer-paperAnchorLeft{ 
     background: linear-gradient(90deg, rgb(71, 71, 71) 0%, rgba(71, 71, 71, 0.979) 35%, rgba(187, 187, 187, 0.192) 100%) !important;
 }
+
+.header-wrapper{
+    position: fixed;
+}
