@@ -1,42 +1,39 @@
-import React, { useEffect, useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import styled from "styled-components";
-import {FetchVideos} from '../../redux/actions/searchAction'
+import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchVideos } from "../../redux/actions/searchAction.js";
 
-const SearchContainer = styled.div`
+const Search = ({ onSearchSubmit }) => {
+  const [search, setSearch] = useState("");
 
-`;
+  // const onFormSubmit = (event) => {
+  //     event.preventDefault();
+  //     onSearchSubmit(search);
+  // };
 
+  const dispatch = useDispatch();
 
-export default function Search() {
-    const dispatch = useDispatch();
-    const searchTerm = useSelector((state) => state.searchTerm);
+  const handleFetchVideos = () => {
+    dispatch(fetchVideos(search))
+    console.log(search);
+  };
+  
+  React.useEffect(() => {
+    console.log(search);
+  }, [search])
 
-    const [searchTerm, setSearchTerm] = useState('')
-    
-    const handleChange = (e) => {
-        setSearchTerm(e.target.value)
-    };
-    
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        dispatch(FetchVideos(searchTerm));
-    };
-    
+  return (
+    <form onSubmit={handleFetchVideos}>
+      <div>
+        <input
+          type="text"
+          placeholder="Enter Seach Term"
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+        />
+        <button type="submit">Search</button>
+      </div>
+    </form>
+  );
+};
 
-    return (
-        <React.Fragment>
-        <SearchContainer>
-            <div>
-                <form onSubmit={() => dispatch(handleSubmit())}>
-                    <input
-                    name="search"
-                    placeholder="Search..."
-                    onChange={() => dispatch(handleChange())}
-                    />
-                </form>
-            </div>
-        </SearchContainer>
-        </React.Fragment>
-    );
-}
+export default Search;

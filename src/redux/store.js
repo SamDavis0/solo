@@ -1,4 +1,4 @@
-import reducer from './reducers';
+import rootReducer from "./reducers";
 import thunkMiddleware from 'redux-thunk'
 import {createStore, applyMiddleware } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension'
@@ -31,7 +31,7 @@ const loadFromLocalStorage = () => {
 
   const composedEnhancer = composeWithDevTools(applyMiddleware(thunkMiddleware))
   
-  const store = createStore(reducer, persistedState, composedEnhancer)
+  const store = createStore(rootReducer, persistedState, composedEnhancer);
 
   store.subscribe(()=> {
     //happens everytime there is a change to global state

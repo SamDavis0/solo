@@ -1,30 +1,24 @@
-import axios from 'axios'
-const key = process.env.YOUTUBE_API_KEY;
+// import youtube from "../../youtubeApi";
+import { FETCH_VIDEOS, SELECTED_VIDEO } from "./types";
+import youtube from './youtube'
 
-const api = axios.create({
-    baseURL: "https://www.googleapis.com/youtube/v3",
-    params: {
-      part: "snippet",
-      maxResults: 5,
-      key: key
-    }
-  });
+export const fetchVideos = (term) => async (dispatch) => {
+  try {
+    const response = await youtube.get('/search', {
+      params: {
+        q: `${term}-tabs`
+      }
+    })
+    dispatch({ type: FETCH_VIDEOS, payload: response.data.items });
+    
+  } catch (err) {
+    console.log(err.message);
+  }
+};
 
-export function SelectedVideo(video) {
+export const setVideo = (video) => {
   return {
-    type: "SELECTED_VIDEO",
+    type: SELECTED_VIDEO,
     payload: video,
   };
-}
-
-export function FetchVideos(searchTerm = "") {
-  return async function (dispatch) {
-    const response = await api.get("/search", {
-      params: {
-        q: `${searchTerm}-tabs`,
-      },
-    });
-
-    dispatch({ type: "FETCH_VIDEOS", payload: response.data });
-  };
-}
+};

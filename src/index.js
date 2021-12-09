@@ -7,7 +7,6 @@ import './index.css';
 import App from './App';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import BaseLayout from './components/layout/BaseLayout'
-import Sample from './components/Sample'
 import store from './redux/store'
 
 
@@ -18,8 +17,6 @@ ReactDOM.render(
         <BaseLayout>
           <Routes>
             <Route path='/' element={<App />} />
-            <Route path='/sample' element={<Sample />} />
-
           </Routes>
         </BaseLayout>
       </Router>
