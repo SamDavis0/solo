@@ -2,11 +2,11 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchVideos } from "../../redux/actions/searchAction";
 import styled from "styled-components";
+import VideoItem from '../VideoItem'
 
-const VideoListWrapper = styled.div`
-  
-  .logo {
-  }
+const VideoListStyle = styled.iframe`
+  width: 50rem;
+  height: 30rem;
 `;
 
 export default function VideoList({ searchQuery }) {
@@ -23,7 +23,7 @@ export default function VideoList({ searchQuery }) {
 
   return (
     <div>
-      {videos.map((video) => <div><iframe src={'https://www.youtube.com/embed/'+video.id.videoId}></iframe></div>)}
+      {videos.map((video) => <div><VideoListStyle src={'https://www.youtube.com/embed/'+video.id.videoId}></VideoListStyle></div>)}
     </div>
   );
 }

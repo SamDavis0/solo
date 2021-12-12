@@ -4,6 +4,12 @@ import {loadProducts} from '../../redux/actions/productActions'
 import {addToCart} from '../../redux/actions/cartActions'
 import Fade from 'react-reveal/Fade'
 import CartItems from './CartItems'
+import styled from "styled-components";
+
+const FavoriteButton = styled.button`
+  background-color: #dadada95;
+  border: none;
+`
 
 const Tunings = () => {
 
@@ -27,9 +33,9 @@ const Tunings = () => {
               {products.map(product => {
                 return (
                 <div key={product.id} className="col-4 mb-5 product">
-                    <img src={product.image} alt="" className='w-20' />
+                    <img onClick={()=> dispatch(addToCart(product))} src={product.image} alt="" className='w-20' />
                   <div className="d-flex justify-content-around">
-                    <button onClick={()=> dispatch(addToCart(product))} className="btn btn-warning">Favorite</button>
+                    <FavoriteButton onClick={()=> dispatch(addToCart(product))} variant="text">Favorite</FavoriteButton>
                   </div>
                 </div>
                 )
