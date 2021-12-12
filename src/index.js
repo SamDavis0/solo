@@ -8,6 +8,7 @@ import App from './App';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import BaseLayout from './components/layout/BaseLayout'
 import store from './redux/store'
+import Tunings from './components/Tunings'
 
 
 ReactDOM.render(
@@ -17,6 +18,7 @@ ReactDOM.render(
         <BaseLayout>
           <Routes>
             <Route path='/' element={<App />} />
+            <Route path='/tunings' element={<Tunings />} />
           </Routes>
         </BaseLayout>
       </Router>

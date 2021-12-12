@@ -1,34 +1,28 @@
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchVideos } from "../../redux/actions/searchAction.js";
+import styled from "styled-components";
 
-const Search = ({ onSearchSubmit }) => {
-  const [search, setSearch] = useState("");
+const SearchBar = styled.input`
+  border-width: 0px;
+  width: 15rem;
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.685) 0%, rgba(126, 126, 126, 0.726) 35%, rgba(187, 187, 187, 0.198) 100%);
+  background-color: black;
+`;
 
-  // const onFormSubmit = (event) => {
-  //     event.preventDefault();
-  //     onSearchSubmit(search);
-  // };
+const Search = ({ setSearchQuery }) => {
+  const [searchInput, setSearchInput] = useState("");
 
-  const dispatch = useDispatch();
-
-  const handleFetchVideos = () => {
-    dispatch(fetchVideos(search))
-    console.log(search);
+  const onFormSubmit = (e) => {
+    e.preventDefault();
+    setSearchQuery(searchInput);
   };
-  
-  React.useEffect(() => {
-    console.log(search);
-  }, [search])
 
   return (
-    <form onSubmit={handleFetchVideos}>
+    <form onSubmit={onFormSubmit}>
       <div>
-        <input
+        <SearchBar
           type="text"
-          placeholder="Enter Seach Term"
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
+          placeholder="Enter A Song"
+          onChange={(e) => setSearchInput(e.target.value)}
         />
         <button type="submit">Search</button>
       </div>

@@ -1,19 +1,29 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-// import VideoItem from "./VideoItem";
+import { fetchVideos } from "../../redux/actions/searchAction";
+import styled from "styled-components";
 
-export default function VideoList() {
-  const videos = useSelector((state) => state.videoList);
+const VideoListWrapper = styled.div`
   
-  React.useEffect(() => {
-    console.log(videos);
-  }, [videos])
-  
+  .logo {
+  }
+`;
+
+export default function VideoList({ searchQuery }) {
+  const dispatch = useDispatch();
+  const videos = useSelector((state) => state.videos.videoList);
+
+  useEffect(() => {
+    dispatch(fetchVideos(searchQuery));
+  }, [dispatch, searchQuery]);
+
+  // useEffect(() => {
+  //   videos !== undefined && console.log(videos);
+  // }, [videos]);
+
   return (
     <div>
-      {videos
-        ? videos.map((video) => <div key={video.data.id.videoId}>{video.data.name}</div>)
-        : null}
+      {videos.map((video) => <div><iframe src={'https://www.youtube.com/embed/'+video.id.videoId}></iframe></div>)}
     </div>
   );
 }

@@ -34,7 +34,6 @@ const loadFromLocalStorage = () => {
   const store = createStore(rootReducer, persistedState, composedEnhancer);
 
   store.subscribe(()=> {
-    //happens everytime there is a change to global state
     saveToLocalStorage(store.getState())
   })
 

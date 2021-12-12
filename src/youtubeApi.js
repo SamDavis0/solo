@@ -1,20 +1,14 @@
 import axios from "axios";
-import dotenv from "dotenv";
 
-dotenv.config();
+const KEY = 'AIzaSyCJppSaSh-JGIEOiZm108EB6pWmTtWLwRg'
 
-// const KEY = process.env.REACT_APP_KEY;
-const KEY = 'AIzaSyCUQi8M2CxN87b_PbjaLn1GTSeMZAP3rIk'
-
-console.log(KEY)
-
-export default axios.create({
-  baseURL: "https://www.googleapis.com/youtube/v3",
-  params: {
-    part: "snippet",
-    type: "video",
-    maxResults: 5,
-    key: KEY,
-    q: 'one'
-  }
-});
+export default axios.create(
+    {
+        baseURL: "https://www.googleapis.com/youtube/v3",
+        params: {
+        part: "snippet",
+        maxResults: 2,
+        key: KEY,
+        },
+    }
+);

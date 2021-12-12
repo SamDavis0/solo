@@ -1,14 +1,16 @@
 
 import {combineReducers} from 'redux'
-// import sampleReducer from './sampleReducer'
 import videoDetailReducer from './videoDetailReducer'
 import videosReducer from './videosReducer'
+import cartReducer from './cartReducer'
+import productsReducer from './productsReducer'
 
 //state.templateReducer.count
 let rootReducer = combineReducers({
-    // templateReducer: sampleReducer,
     videos: videosReducer,
-    selectedVideo: videoDetailReducer
+    selectedVideo: videoDetailReducer,
+    productsCR: productsReducer,
+    cartCR: cartReducer
 })
 
 export default rootReducer

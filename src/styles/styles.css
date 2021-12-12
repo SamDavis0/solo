@@ -1,8 +1,8 @@
 
-.MuiOutlinedInput-notchedOutline{
+/* .MuiOutlinedInput-notchedOutline{
     border-width: 0px !important;
     background: linear-gradient(90deg, rgba(0, 0, 0, 0.685) 0%, rgba(126, 126, 126, 0.726) 35%, rgba(187, 187, 187, 0.198) 100%);
-}
+} */
 
 .MuiInputLabel-outlined{
     color: rgb(207, 207, 207) !important
@@ -23,7 +23,6 @@
     background-color: rgba(255, 255, 255, 0) !important;
     border-radius: 15px;
 }
-
 
 .background{
     position: fixed;

@@ -46,7 +46,7 @@ export default function Header2() {
       </List>
       <Divider />
       <List>
-        {[<Link className='navlink' to='/sample'>Redux Button</Link>].map((text, index) => (
+        {[<Link className='navlink' to='/tunings'>Tunings</Link>].map((text, index) => (
           <ListItem button key={text}>
             <ListItemIcon>
               {index % 2 === 0 ? <HomeIcon /> : <MailIcon />}

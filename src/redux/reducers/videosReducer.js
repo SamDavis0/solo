@@ -8,9 +8,10 @@ const initialState = {
 const videosReducer = (state = initialState, action) => {
   switch (action.type) {
     case FETCH_VIDEOS:
+      // console.log('inside of reducer', action.payload)
       return {
         ...state,
-        videoList: action.payload.data
+        videoList: action.payload
       }
     default:
       return state;
